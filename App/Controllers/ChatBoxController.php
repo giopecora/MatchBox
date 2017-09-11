@@ -28,17 +28,12 @@ use App\Lib\ConexaoWatson;
     
      
     public function enviarPergunta(){
-        file_put_contents("teste.txt",var_export($_SERVER["REQUEST_METHOD"],true), FILE_APPEND);
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {  
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {  
             $this->pergunta = $this->test_input($_POST["pergunta"]);
             $this->resposta = $this->watson->Enviar_Pergunta($this->pergunta, "211cb5de-fb59-48d8-b1c5-7d656e2648e6");
             $this->watson->set_contexto(json_encode($this->resposta['context']));
-
-
-            echo json_encode($this->resposta['output']['text'][0]);
-            // echo "<br><br>";
-            // echo json_encode($this->resposta);
-        }
+            echo json_encode($this->resposta['output']['text'][0],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+         }
     }
        
 
