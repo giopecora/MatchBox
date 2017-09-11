@@ -1,5 +1,19 @@
 $( document ).ready(function() {
     insertChat("me", "Olá! Como posso ajudar?");
+    $("#btn-chat").click(function(){
+        insertChat("you", $("#pergunta").val());              
+        $("#pergunta").val('');
+        $.ajax({
+            url: "ChatBox/enviarPergunta",
+            method: "POST",
+            data: {'pergunta': $("#pergunta").val()},
+            context: document.body
+        }).done(function(data) {
+            insertChat("me",data,0);
+        }).fail(function(){
+            alert("teste 2");   
+        });
+    });
 });
 
 

@@ -41,8 +41,13 @@ html body{
     float:left;
     padding-right:10px;
 }
+#btn-chat{
+	margin-top: 25%;
+	margin-left: 25%;
+}
+
 .macro{
-    margin-top:5px;width:85%;border-radius:5px;padding:5px;display:flex;
+    margin-top:5px;width:80%;border-radius:5px;padding:5px;display:flex;
 }
 .msj-rta{
     float:right;background:whitesmoke;
@@ -52,10 +57,39 @@ html body{
 }
 .frame{
     background:#e0e0de;
-    height:700px;
     overflow:hidden;
     padding:0;
 }
+
+@media screen and (max-width: 600px) {
+	.frame{
+		height:800px;
+	}
+}
+
+/* min-width */
+@media screen and (min-width: 900px) {
+	.frame{
+		height:600px;
+	}
+}
+
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+	.frame{
+		height:450px;
+	}
+}
+
+/* max device width */
+@media screen and (max-width: 480px) {
+	.frame{
+		height:50px;
+	}
+}
+
+
+
 .frame > div:last-of-type{
     position:absolute;bottom:5px;width:100%;display:flex;
 }
