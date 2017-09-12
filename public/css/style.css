@@ -61,16 +61,11 @@ html body{
     padding:0;
 }
 
-@media screen and (max-width: 600px) {
-	.frame{
-		height:800px;
-	}
-}
 
 /* min-width */
 @media screen and (min-width: 900px) {
 	.frame{
-		height:600px;
+		height:500px;
 	}
 }
 
@@ -81,10 +76,17 @@ html body{
 	}
 }
 
+/* min-width & max-width */
+@media screen and (min-width: 480px) and (max-width: 600px) {
+	.frame{
+		height:350px;
+	}
+}
+
 /* max device width */
 @media screen and (max-width: 480px) {
 	.frame{
-		height:50px;
+		height:200px;
 	}
 }
 

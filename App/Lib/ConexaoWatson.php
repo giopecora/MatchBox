@@ -5,7 +5,7 @@ namespace App\Lib;
 class ConexaoWatson {
 
 	private $Usuario = "";
-	private $Contraseña = "";
+	private $senha = "";
 	private $Contexto = "";
 
 	function __construct()
@@ -17,7 +17,7 @@ class ConexaoWatson {
 
 	public function set_credenciales($usr,$pass){
 		$this->Usuario = $usr;
-		$this->Contraseña = $pass;
+		$this->senha = $pass;
 	}
 
 	public function set_contexto($context){
@@ -47,7 +47,7 @@ class ConexaoWatson {
 	    	'Content-Length: ' . strlen($dataa))                                                                       
 		 );  
 	     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-	     curl_setopt($curl, CURLOPT_USERPWD, $this->Usuario.":".$this->Contraseña);
+	     curl_setopt($curl, CURLOPT_USERPWD, $this->Usuario.":".$this->senha);
          curl_setopt($curl, CURLOPT_URL, "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/".$workspace."/message/?version=2017-09-09");
 	     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
          $result = curl_exec($curl);
