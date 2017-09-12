@@ -1,12 +1,14 @@
 $( document ).ready(function() {
     insertChat("me", "Olá! Como posso ajudar?");
     $("#btn-chat").click(function(){
+        
         insertChat("you", $("#pergunta").val());              
+        var pergunta = $("#pergunta").val();
         $("#pergunta").val('');
         $.ajax({
             url: "ChatBox/enviarPergunta",
             method: "POST",
-            data: {'pergunta': $("#pergunta").val()},
+            data: {'pergunta': pergunta},
             context: document.body
         }).done(function(data) {
             insertChat("me",data,0);
